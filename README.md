@@ -44,3 +44,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Others
+- [[MSW]: Detected outdated Service Worker...](https://github.com/mswjs/msw/issues/496)
+
+  Fix: `npx msw init <PUBLIC_DIR>` or `./node_modules/.bin/msw init <PUBLIC_DIR>`
