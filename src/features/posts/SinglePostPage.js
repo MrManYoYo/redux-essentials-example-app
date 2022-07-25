@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectPosts   } from './postSlice'
 
+import { Link } from 'react-router-dom'
+
 export const SinglePostPage = ({ match }) => {
   const { postId } = match.params
 
@@ -22,6 +24,7 @@ export const SinglePostPage = ({ match }) => {
       <article className='post'>
         <h2>{post.title}</h2>
         <div className='post-content'>{post.content}</div>
+        <Link to={`/editPost/${postId}`} className='button'>Edit Post</Link>
       </article>
     </section>
   )
