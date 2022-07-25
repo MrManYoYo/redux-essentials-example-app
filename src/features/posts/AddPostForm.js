@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { postAdded } from './postSlice'
+import { nanoid } from '@reduxjs/toolkit';
 
 export const AddPostForm = () => {
+  const dispatch = useDispatch();
+  
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
   const onTitleChanged = e => setTitle(e.target.value)
   const onContentChanged = e => setContent(e.target.value)
 
+  const savePostHandle = () => {
+    if (title && content) {
+      dispatch(postAdded({
+        id: nanoid(),
+        title,
+        content
+      }))
+    }
+  }
+  
   return (
     <section>
       <h2>Add a new post.</h2>
@@ -29,7 +44,7 @@ export const AddPostForm = () => {
           max-height='100px'
           onChange={onContentChanged} />
         
-        <button type='button'>Save</button>
+        <button type='button' onClick={savePostHandle}>Save</button>
       </form>
     </section>
   )
